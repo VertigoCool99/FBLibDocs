@@ -1,24 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     function highlightActiveLink() {
         var sidebarLinks = document.querySelectorAll('.sidebar-link');
-        var sections = document.querySelectorAll('.content-section');
+        var currentPath = window.location.pathname.split('/').pop(); // Get the current file name
 
-        var scrollPosition = window.scrollY + 150; // Adjust scroll position for active link
+        sidebarLinks.forEach(function(link) {
+            var href = link.getAttribute('href');
+            var isActive = href === currentPath || (currentPath === 'index.html' && href === 'index.html');
 
-        sections.forEach(function(section) {
-            var sectionId = section.getAttribute('id');
-            var bounding = section.getBoundingClientRect();
-            var sectionTop = bounding.top + window.scrollY;
-            var sectionBottom = bounding.bottom + window.scrollY;
-
-            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-                sidebarLinks.forEach(function(link) {
-                    link.classList.toggle('active', link.getAttribute('href').includes(sectionId));
-                });
-            }
+            link.classList.toggle('active', isActive);
         });
     }
 
-    window.addEventListener('scroll', highlightActiveLink);
     highlightActiveLink(); // Initial call to set the correct active link on page load
 });
