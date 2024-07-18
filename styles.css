@@ -78,7 +78,7 @@ body {
     color: #868686; /* DisabledText color */
 }
 
-/* Prism toolbar styles */
+/* Prism code block styles */
 pre[class*="language-"] {
     position: relative;
     margin: 1em 0;
