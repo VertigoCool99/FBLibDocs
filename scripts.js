@@ -19,39 +19,33 @@ document.addEventListener("DOMContentLoaded", function() {
     const tocLinks = document.querySelectorAll('.toc a');
 
     function highlightActiveSection() {
-        let index = -1;
+        let index = -1; // Start with an invalid index
 
         // Find the section that is currently closest to the viewport
         for (let i = 0; i < sections.length; i++) {
             const bounding = sections[i].getBoundingClientRect();
-            const midpoint = bounding.top + (bounding.height / 2);
 
-            if (midpoint <= window.innerHeight / 2 && midpoint >= -window.innerHeight / 2) {
+            // Check if the middle of the viewport is within the section's vertical space
+            if (bounding.top <= window.innerHeight / 2 && bounding.bottom > window.innerHeight / 2) {
                 index = i;
                 break;
             }
         }
 
+        // If the current index is -1, that means no section was found within the viewport
+        if (index === -1) return;
+
         // Remove active class from all links
         tocLinks.forEach(link => link.classList.remove('active'));
 
         // Add active class to the link corresponding to the current section
-        if (index >= 0 && tocLinks[index]) {
+        if (tocLinks[index]) {
             tocLinks[index].classList.add('active');
         }
     }
 
-    // Debounce function to limit the rate of scroll event handling
-    function debounce(func, wait) {
-        let timeout;
-        return function(...args) {
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(this, args), wait);
-        };
-    }
-
-    // Highlight section on scroll with debounce
-    window.addEventListener('scroll', debounce(highlightActiveSection, 10));
+    // Highlight section on scroll
+    window.addEventListener('scroll', highlightActiveSection);
 
     // Highlight section on page load
     highlightActiveSection();
