@@ -23,32 +23,85 @@
         <main class="content">
             <div class="content-wrapper">
                 <div id="UiLibrary" class="content-section">
-                    <h1>Ui Library</h1>
-                    <p>This section contains documentation for the Ui Library.</p>
+                    <h1>Ui Library Example</h1>
                 </div>
-                <div id="Toggle" class="content-section">
-                    <h1>Toggle</h1>
-                    <p>Here's an example of a toggle component:</p>
+                
+                <div id="Example" class="content-section">
                     <pre><code class="language-lua">
--- Example Lua code
-function toggleComponent()
-    -- Implementation here
-end
-toggleComponent()
-                    </code></pre>
+local Library = "Library Loadstring Here"
+local Window = Library:CreateWindow({Title="Float",TweenTime=.15,Center=true})
+                        
+local NewTab = Window2:AddTab("Main")
+                        
+local NewGroupbox = NewTab:AddLeftGroupbox("First Group")
+
+local NewLabel = NewGroupbox:AddLabel("NewLabel","TextLabel!")
+local NewButton = NewGroupbox:AddButton({Text = "Button",Func = function()
+    print("Clicked!")
+end,})
+NewButton:AddButton({Text = "Button 2",Func = function()
+    print("Clicked")
+end,})
+
+NewGroupbox:AddDivider()
+
+local NewToggle = NewGroupbox:AddToggle("NewToggle",{Text = "Toggle",Default = false,Risky = false,Callback = function(Value)
+    print(Value) 
+end,})
+NewToggle:AddTooltip("Hovering Text Above Toggle")
+
+local NewSlider = NewGroupbox:AddSlider("NewSlider",{Text = "Slider",Default = 30,Min = 0,Max = 100,Rounding = 0,Callback = function(value)
+    print(Value)
+end,})
+
+local NewDropdown = NewGroupbox:AddDropdown("NewDropdown",{Text = "Dropdown", AllowNull = true,Values = {"a","b","c"},Multi = false,Callback = function(value)
+    print(value)
+end,})
+
+local NewTextbox = NewGroupbox:AddInput("NewTextbox",{Text = "TextBox";Default = "Texting",Numeric = false,Finished = true, Callback = function(value)
+    print("Finished Typing: "..value)
+end,})
+
+local NewColorPicker = NewGroupbox:AddColorPicker("NewColorPicker",{Text = "ColorPicker";Default = Color3.fromRGB(255,55,65);Rainbow = false,Title = "Picker Title", Callback = function(color)
+    print(color)
+end,})
+
+local ToggleKeyPicker = NewToggle:AddKeyPicker("NewToggleKeyPicker",{Default = "K",Mode = "Toggle",SyncToggleState = true,Callback = function()
+    print("Pressed Key")
+end,})
+
+Library:SetWatermark("Float.Balls New UI Watermark Test")
+
+--Settings Start
+local UnloadButton = SettingsUI:AddButton({Text="Unload",Func=function()
+    Library:Unload()
+end})
+local MenuLabel = SettingsUI:AddLabel("MenuKeybindLabel","MenuKeybind")
+local KeyPicker = MenuLabel:AddKeyPicker("Menu_KeyBind",{Default="Insert",IgnoreKeybindFrame=true})
+Options["Menu_KeyBind"]:OnClick(function()
+    Library:Toggle()
+end)
+
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+ThemeManager:ApplyToTab(Settings)
+SaveManager:IgnoreThemeSettings()
+SaveManager:SetIgnoreIndexes({"MenuKeybind","BackgroundColor", "ActiveColor", "ItemBorderColor", "ItemBackgroundColor", "TextColor" , "DisabledTextColor", "RiskyColor"})
+SaveManager:SetFolder('Example')
+SaveManager:BuildConfigSection(Settings)
+
+local ConfigGroupbox = Settings:AddRightGroupbox("Config")
+local NotiPositionDropdown = ConfigGroupbox:AddDropdown("NotiPositionDropdown",{Text="Notification Position",Values={"Top_Left","Top_Right","Bottom_Left","Bottom_Right"},Default="Top_Left"})
+NotiPositionDropdown:OnChanged(function(Value)
+    Library.NotificationPosition = Value
+end)
+
+SaveManager:LoadAutoloadConfig()
+
+--Settings End
+</code></pre>
                 </div>
-                <div id="Slider" class="content-section">
-                    <h1>Slider</h1>
-                    <p>Here's an example of a slider component:</p>
-                    <pre><code class="language-lua">
--- Example Lua code
-function sliderComponent()
-    -- Implementation here
-end
-sliderComponent()
-                    </code></pre>
-                </div>
-                <!-- Add more sections as needed -->
+
             </div>
             <div class="toc">
             </div>
