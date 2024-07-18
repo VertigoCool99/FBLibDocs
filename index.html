@@ -13,9 +13,9 @@
     <div class="container">
         <aside class="sidebar">
             <h3>Float.balls Docs</h3>
-            <ul>
+            <ul id="toc">
                 <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
-                <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
+                <li><a href="#" onclick="showContent('UiLibraryExample')">Toggle Slider Input</a></li>
                 <li><hr class="sidebar-divider"></li> <!-- Divider here -->
                 <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
                 <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
@@ -23,40 +23,59 @@
         </aside>
         <main class="content">
             <div id="UiLibrary" class="content-section">
-                <h1>Introduction</h1>
-                <p>Welcome to the documentation. This is the introduction section.</p>
+                <h1>Ui Library</h1>
+                <p>This section contains documentation for the Ui Library.</p>
             </div>
             <div id="UiLibraryExample" class="content-section" style="display: none;">
-                <h1>Getting Started</h1>
-                <p>Here's how to get started with our product.</p>
+                <h1>Toggle Slider Input</h1>
+                <p>Here's an example of how to use a toggle slider input:</p>
                 <pre><code class="language-lua">
 -- Example Lua code
-function helloWorld()
-    print("Hello, world!")
+function toggleSliderInput()
+    -- Implementation here
 end
-helloWorld()
+toggleSliderInput()
                 </code></pre>
             </div>
             <div id="EspLibrary" class="content-section" style="display: none;">
-                <h1>API Reference</h1>
-                <p>Here is the API reference documentation.</p>
-                <pre><code class="language-lua">
--- Another example Lua code
-function add(a, b)
-    return a + b
-end
-print(add(2, 3)) -- Outputs: 5
-                </code></pre>
+                <h1>Esp Library</h1>
+                <p>This section contains documentation for the Esp Library.</p>
             </div>
             <div id="EspLibraryExample" class="content-section" style="display: none;">
-                <h1>FAQ</h1>
-                <p>Frequently Asked Questions.</p>
+                <h1>Esp Library Example</h1>
+                <p>Example content for the Esp Library Example.</p>
             </div>
         </main>
     </div>
+    <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script>
+        function showContent(sectionId) {
+            // Hide all content sections
+            var contentSections = document.querySelectorAll('.content-section');
+            contentSections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected content section
+            var selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+            }
+
+            // Update active state in TOC
+            var tocItems = document.querySelectorAll('#toc li');
+            tocItems.forEach(function(item) {
+                item.classList.remove('active');
+            });
+            var activeTocItem = document.querySelector('#toc a[href="#"][onclick="showContent(\'' + sectionId + '\')"]');
+            if (activeTocItem) {
+                activeTocItem.parentNode.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
