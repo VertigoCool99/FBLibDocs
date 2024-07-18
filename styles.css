@@ -7,6 +7,7 @@ body {
     color: #f5f5f5; /* Light text color */
 }
 
+/* Container styles */
 .container {
     display: flex;
     width: 100%;
@@ -69,9 +70,9 @@ main.content {
     display: flex;
     padding: 20px;
     margin-left: 220px; /* Adjust to accommodate sidebar width */
+    justify-content: center; /* Center content horizontally */
 }
 
-/* Content section styles */
 .content-section {
     padding: 20px;
     margin-bottom: 20px;
@@ -79,6 +80,9 @@ main.content {
     color: #f5f5f5; /* Light text color */
     border: none; /* No border */
     border-radius: 8px; /* Rounded corners */
+    max-width: 1200px; /* Set a max width to control section width */
+    width: 100%; /* Full width up to max-width */
+    box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .content-section h1 {
