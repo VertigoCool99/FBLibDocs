@@ -70,9 +70,11 @@ main.content {
     display: flex;
     padding: 20px;
     margin-left: 220px; /* Adjust to accommodate sidebar width */
+    margin-right: 270px; /* Adjust to accommodate TOC width */
     justify-content: center; /* Center content horizontally */
 }
 
+/* Adjust content-section to ensure it is centered */
 .content-section {
     padding: 20px;
     margin-bottom: 20px;
@@ -80,36 +82,27 @@ main.content {
     color: #f5f5f5; /* Light text color */
     border: none; /* No border */
     border-radius: 8px; /* Rounded corners */
-    max-width: 1650px; /* Set a max width to control section width */
+    max-width: 1400px; /* Increase max-width for wider sections */
     width: 100%; /* Full width up to max-width */
     box-sizing: border-box; /* Ensure padding is included in width */
     text-align: left; /* Align text to the left */
 }
 
-.content-section h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.content-section p {
-    font-size: 16px;
-    line-height: 1.6;
-}
-
+/* Code block styles */
 .content-section pre {
     margin: 10px 0;
     padding: 20px; /* Padding inside code block */
     background-color: #1d1f23; /* Slightly lighter background for code blocks */
     border-radius: 8px; /* Rounded corners for code blocks */
     overflow: auto; /* Scrollbars if needed */
-    max-width: calc(100% - 40px); /* Adjust for padding */
+    width: 100%; /* Ensure the code block takes full width of the section */
 }
 
 /* Table of Contents styles */
 .toc {
     width: 250px; /* Increased width for TOC */
     padding: 20px;
-    background-color: #11171d; /* Match main site background */
+    background-color: #1d252c; /* Match main site background */
     position: fixed;
     right: 0; /* Align TOC to the right side */
     top: 0;
