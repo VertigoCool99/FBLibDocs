@@ -133,6 +133,41 @@ NewTextbox:OnChanged(function(Value)
 end)
 </code></pre>
                 </div>
+                <div id="ColorPicker" class="content-section">
+                    <h1>Color Picker</h1>
+<pre><code class="language-lua">
+local NewColorPicker = NewGroupbox:AddColorPicker(String(Index),{
+    Text = String;
+    Default = Bool;
+    Rainbow = Bool, --Not Needed
+    Title = String, --Not Needed
+    Callback = Function,
+})
+
+ColorPicker:SetValueRGB(Color3RGB)
+ColorPicker:OnChanged(function(Value)
+    print(Value)    
+end)
+</code></pre>
+                </div>
+            </div>
+            <div id="KeyPicker" class="content-section">
+                    <h1>Key Picker [ADDON]</h1>
+<pre><code class="language-lua">
+local ToggleKeyPicker = NewToggle:AddKeyPicker(String(Index),{
+    Default = Bool,
+    Mode = Always | Toggle | Hold,
+    IgnoreKeybindFrame = Bool --Not Needed [Wether To Show In KeyBind Frame]
+    SyncToggleState = Bool, --Not Needed
+    Callback = Function,
+})
+
+ToggleKeyPicker:SetValue({Key,Mode})
+ToggleKeyPicker:OnChanged(function(Value)
+    print(Value)
+end)
+</code></pre>
+                </div>
             </div>
             <div class="toc">
                 <h3>Table of Contents</h3>
@@ -144,6 +179,8 @@ end)
                     <li><a href="#Slider" class="toc-link">Slider</a></li>
                     <li><a href="#Dropdown" class="toc-link">Dropdown</a></li>
                     <li><a href="#Textbox" class="toc-link">Textbox</a></li>
+                    <li><a href="#ColorPicker" class="toc-link">Color Picker</a></li>
+                    <li><a href="#KeyPicker" class="toc-link">Key Picker [ADDON]</a></li>
                 </ul>
             </div>
         </main>
