@@ -14,5 +14,5 @@ function showContent(sectionId) {
 
 // Show the first section by default
 document.addEventListener('DOMContentLoaded', () => {
-    showContent('intro');
+    showContent('UiLibrary');
 });
