@@ -26,52 +26,52 @@
                     <h1>Introduction</h1>
                     <p>First Require The Library And Make A Window And Tabs/Groupboxes</p>
                     <pre><code class="language-lua">
-                        local Library = "Library Loadstring Here"
-                        local Window = Library:CreateWindow({Title=String,TweenTime=Int,Center=Bool})
+local Library = "Library Loadstring Here"
+local Window = Library:CreateWindow({Title=String,TweenTime=Int,Center=Bool})
                         
-                        local NewTab = Window2:AddTab(String(Name))
+local NewTab = Window2:AddTab(String(Name))
                         
-                        local NewGroupbox = NewTab:AddLeftGroupbox(String(Name)) --Left Side
-                        Local NewGroupbox2 = NewTab:AddRightGroupbox(String(Name)) --Right Side
+local NewGroupbox = NewTab:AddLeftGroupbox(String(Name)) --Left Side
+Local NewGroupbox2 = NewTab:AddRightGroupbox(String(Name)) --Right Side
                     </code></pre>
                 </div>
                 <div id="Label" class="content-section">
                     <h1>Label</h1>
                     <pre><code class="language-lua">
-                        local NewLabel = NewGroupbox:AddLabel(String(Index),String(Text))
+local NewLabel = NewGroupbox:AddLabel(String(Index),String(Text))
 
-                        NewLabel:SetText(String(Text)) --Updates The Label
+NewLabel:SetText(String(Text)) --Updates The Label
                     </code></pre>
                     <p>Labels Can Take Addons Such As KeyPickers And ColorPickers!</p>
                 </div>
                 <div id="Button" class="content-section">
                     <h1>Button</h1>
                     <pre><code class="language-lua">
-                        local NewButton = NewGroupbox:AddButton({
-                            Text=String,
-                            Func=Function,
-                        })
+local NewButton = NewGroupbox:AddButton({
+    Text=String,
+    Func=Function,
+})
 
-                        NewButton:AddButton({ --Add A Sub Button
-                            Text = String,
-                            Func= Function,
-                        })
+NewButton:AddButton({ --Add A Sub Button
+    Text = String,
+    Func= Function,
+})
 
-                        NewButton:AddTooltip(String)
+NewButton:AddTooltip(String)
                     </code></pre>
                 </div>
                 <div id="Toggle" class="content-section">
                     <h1>Toggle</h1>
                     <pre><code class="language-lua">
-                        local NewToggle = NewGroupbox:AddToggle(String(Index),{
-                            Text = String,
-                            Default = Bool,
-                            Risky = Bool,
-                            Callback = Function,
-                        })
+local NewToggle = NewGroupbox:AddToggle(String(Index),{
+    Text = String,
+    Default = Bool,
+    Risky = Bool,
+    Callback = Function,
+})
 
-                        NewToggle:SetValue(Bool)
-                        NewToggle:AddTooltip(String)
+NewToggle:SetValue(Bool)
+NewToggle:AddTooltip(String)
                     </code></pre>
                 </div>
             </div>
