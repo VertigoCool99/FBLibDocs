@@ -62,12 +62,17 @@ body {
     border-radius: 8px; /* Rounded corners for the border */
 }
 
-
 /* Content styles */
-.content {
+main.content {
     flex: 1;
+    display: flex;
     padding: 20px;
     margin-left: 220px; /* Adjust to accommodate sidebar width */
+}
+
+.content-wrapper {
+    flex: 1;
+    padding-right: 220px; /* Space for TOC */
 }
 
 .content-section {
@@ -124,6 +129,9 @@ body {
     text-decoration: none;
     color: #f5f5f5; /* Light text color */
     font-size: 16px;
+    display: block; /* Ensure the background color covers the full width */
+    padding: 10px; /* Add padding for better visual */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .toc a:hover {
@@ -131,6 +139,9 @@ body {
 }
 
 .toc .active {
+    background-color: #00ffef; /* Highlighted background color */
+    color: #1d252c; /* Dark text color for contrast */
     font-weight: bold;
-    color: #00ffef; /* Active link color */
+    border: 2px solid #00ffef; /* Rounded border */
+    border-radius: 8px; /* Rounded corners for the border */
 }
