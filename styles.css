@@ -54,6 +54,13 @@ body {
     border-color: #00ffef; /* Active color as border */
 }
 
+.sidebar-divider {
+    border: 0;
+    height: 1px;
+    margin: 10px 0;
+    background-color: #868686; /* Divider color */
+}
+
 .content {
     flex: 1;
     padding: 20px;
@@ -76,8 +83,9 @@ pre[class*="language-"] {
     position: relative;
     margin: 1em 0;
     padding: 1em;
-    background-color: #1d252c; /* Code block background */
+    background-color: #222b33; /* Code block background */
     border-radius: 8px;
+    overflow-x: auto; /* Ensure code blocks scroll horizontally if necessary */
 }
 
 pre[class*="language-"]::before {
