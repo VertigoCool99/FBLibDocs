@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Documentation</h2>
+            <ul>
+                <li><a href="#" onclick="showContent('intro')">Introduction</a></li>
+                <li><a href="#" onclick="showContent('getting-started')">Getting Started</a></li>
+                <li><a href="#" onclick="showContent('api')">API Reference</a></li>
+                <li><a href="#" onclick="showContent('faq')">FAQ</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div id="intro" class="content-section">
+                <h1>Introduction</h1>
+                <p>Welcome to the documentation. This is the introduction section.</p>
+            </div>
+            <div id="getting-started" class="content-section" style="display: none;">
+                <h1>Getting Started</h1>
+                <p>Here's how to get started with our product.</p>
+            </div>
+            <div id="api" class="content-section" style="display: none;">
+                <h1>API Reference</h1>
+                <p>Here is the API reference documentation.</p>
+            </div>
+            <div id="faq" class="content-section" style="display: none;">
+                <h1>FAQ</h1>
+                <p>Frequently Asked Questions.</p>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
