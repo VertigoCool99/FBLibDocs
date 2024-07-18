@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation</title>
+    <title>Ui Library Documentation</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
@@ -14,46 +14,50 @@
         <aside class="sidebar">
             <h2>Float.balls Docs</h2>
             <ul>
-                <li><a href="#UiLibrary" class="sidebar-link">Ui Library</a></li>
-                <li><a href="#ToggleSliderInput" class="sidebar-link">Toggle Slider Input</a></li>
-                <li><a href="#EspLibrary" class="sidebar-link">Esp Library</a></li>
-                <li><a href="#EspLibraryExample" class="sidebar-link">Esp Library Example</a></li>
+                <li><a href="index.html" class="sidebar-link">Ui Library</a></li>
+                <li><a href="UiLibraryExample.html" class="sidebar-link">Ui Library Example</a></li>
+                <li><a href="esp-library.html" class="sidebar-link">Esp Library</a></li>
+                <li><a href="esp-library-example.html" class="sidebar-link">Esp Library Example</a></li>
             </ul>
         </aside>
         <main class="content">
             <div id="UiLibrary" class="content-section">
                 <h1>Ui Library</h1>
                 <p>This section contains documentation for the Ui Library.</p>
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#Toggle" class="toc-link">Toggle</a></li>
+                        <li><a href="#Slider" class="toc-link">Slider</a></li>
+                        <li><a href="#Input" class="toc-link">Input</a></li>
+                        <li><a href="#Button" class="toc-link">Button</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="ToggleSliderInput" class="content-section">
-                <h1>Toggle Slider Input</h1>
-                <p>Here's an example of how to use a toggle slider input:</p>
+            <div id="Toggle" class="content-section">
+                <h1>Toggle</h1>
+                <p>Here's an example of a toggle component:</p>
                 <pre><code class="language-lua">
 -- Example Lua code
-function toggleSliderInput()
+function toggleComponent()
     -- Implementation here
 end
-toggleSliderInput()
+toggleComponent()
                 </code></pre>
             </div>
-            <div id="EspLibrary" class="content-section">
-                <h1>Esp Library</h1>
-                <p>This section contains documentation for the Esp Library.</p>
+            <div id="Slider" class="content-section">
+                <h1>Slider</h1>
+                <p>Here's an example of a slider component:</p>
+                <pre><code class="language-lua">
+-- Example Lua code
+function sliderComponent()
+    -- Implementation here
+end
+sliderComponent()
+                </code></pre>
             </div>
-            <div id="EspLibraryExample" class="content-section">
-                <h1>Esp Library Example</h1>
-                <p>Example content for the Esp Library Example.</p>
-            </div>
+            <!-- Add more sections as needed -->
         </main>
-        <div class="toc">
-            <h3>Table of Contents</h3>
-            <ul>
-                <li><a href="#UiLibrary" class="toc-link">Ui Library</a></li>
-                <li><a href="#ToggleSliderInput" class="toc-link">Toggle Slider Input</a></li>
-                <li><a href="#EspLibrary" class="toc-link">Esp Library</a></li>
-                <li><a href="#EspLibraryExample" class="toc-link">Esp Library Example</a></li>
-            </ul>
-        </div>
     </div>
     <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
