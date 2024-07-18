@@ -102,7 +102,7 @@ main.content {
 .toc {
     width: 250px; /* Increased width for TOC */
     padding: 20px;
-    background-color: #1d252c; /* Match main site background */
+    background-color: #11171d; /* Match main site background */
     position: fixed;
     right: 0; /* Align TOC to the right side */
     top: 0;
