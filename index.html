@@ -14,6 +14,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             display: flex;
+            background-color: #f5f5f5; /* Match your site's background color */
         }
 
         .container {
@@ -21,11 +22,71 @@
             display: flex;
         }
 
+        /* Sidebar styles */
+        .sidebar {
+            width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-right: 1px solid #ccc;
+        }
+
+        .sidebar h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .sidebar a:hover {
+            color: #000;
+        }
+
+        /* Content styles */
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .content-section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .content-section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .content-section pre {
+            margin: 10px 0;
+        }
+
         /* Table of Contents styles */
         .toc {
             width: 200px;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #f5f5f5; /* Match your site's background color */
             border-right: 1px solid #ccc;
             position: sticky;
             top: 0;
@@ -57,32 +118,9 @@
             color: #000;
         }
 
-        /* Content styles */
-        .content {
-            flex: 1;
-            padding: 20px;
-        }
-
-        .content-section {
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-
-        .content-section h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .content-section p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-
-        .content-section pre {
-            margin: 10px 0;
+        /* Active section highlight */
+        .active {
+            background-color: #e0e0e0; /* Adjust as needed */
         }
     </style>
 </head>
@@ -150,6 +188,29 @@ toggleSliderInput()
                         });
                     }
                 });
+            });
+        });
+
+        // Highlight active section in sidebar
+        window.addEventListener('scroll', function() {
+            var sections = document.querySelectorAll('.content-section');
+            var sidebarLinks = document.querySelectorAll('.sidebar a');
+            var tocLinks = document.querySelectorAll('.toc a');
+
+            sections.forEach(function(section, index) {
+                var bounding = section.getBoundingClientRect();
+
+                if (bounding.top <= 150 && bounding.bottom >= 150) {
+                    sidebarLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    sidebarLinks[index].classList.add('active');
+
+                    tocLinks.forEach(function(link) {
+                        link.classList.remove('active');
+                    });
+                    tocLinks[index].classList.add('active');
+                }
             });
         });
     </script>
