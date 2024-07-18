@@ -83,6 +83,7 @@ main.content {
     max-width: 1200px; /* Set a max width to control section width */
     width: 100%; /* Full width up to max-width */
     box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: left; /* Align text to the left */
 }
 
 .content-section h1 {
@@ -97,11 +98,16 @@ main.content {
 
 .content-section pre {
     margin: 10px 0;
+    padding: 20px; /* Padding inside code block */
+    background-color: #1d1f23; /* Slightly lighter background for code blocks */
+    border-radius: 8px; /* Rounded corners for code blocks */
+    overflow: auto; /* Scrollbars if needed */
+    max-width: calc(100% - 40px); /* Adjust for padding */
 }
 
 /* Table of Contents styles */
 .toc {
-    width: 200px;
+    width: 250px; /* Increased width for TOC */
     padding: 20px;
     background-color: #11171d; /* Match main site background */
     position: fixed;
