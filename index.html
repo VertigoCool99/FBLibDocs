@@ -32,7 +32,7 @@ local Window = Library:CreateWindow({Title=String,TweenTime=Int,Center=Bool})
 local NewTab = Window2:AddTab(String(Name))
                         
 local NewGroupbox = NewTab:AddLeftGroupbox(String(Name)) --Left Side
-Local NewGroupbox2 = NewTab:AddRightGroupbox(String(Name)) --Right Side
+local NewGroupbox2 = NewTab:AddRightGroupbox(String(Name)) --Right Side
 </code></pre>
                 </div>
                 <div id="Label" class="content-section">
@@ -48,13 +48,13 @@ NewLabel:SetText(String(Text)) --Updates The Label
                     <h1>Button</h1>
 <pre><code class="language-lua">
 local NewButton = NewGroupbox:AddButton({
-    Text=String,
-    Func=Function,
+    Text = String,
+    Func = Function,
 })
 
 NewButton:AddButton({ --Add A Sub Button
     Text = String,
-    Func= Function,
+    Func = Function,
 })
 
 NewButton:AddTooltip(String)
@@ -72,6 +72,65 @@ local NewToggle = NewGroupbox:AddToggle(String(Index),{
 
 NewToggle:SetValue(Bool)
 NewToggle:AddTooltip(String)
+NewToggle:OnChanged(function(Bool)
+    print(Bool)
+end)
+</code></pre>
+            <p>Toggles Can Take Addons Such As KeyPickers And ColorPickers!</p>
+                </div>
+                <div id="Slider" class="content-section">
+                    <h1>Slider</h1>
+<pre><code class="language-lua">
+local NewSlider = NewGroupbox:AddSlider(String(Index),{
+    Text = String,
+    Default = Bool,
+    Min = Int,
+    Max = Int,
+    Rounding = Int,
+    Callback = Function,
+})
+
+NewSlider:AddToolTip(String)
+NewSlider:SetValue(Int)
+NewSlider:OnChanged(function(Int)
+    print(Int) 
+end)
+</code></pre>
+                </div>
+                <div id="Dropdown" class="content-section">
+                    <h1>Dropdown</h1>
+<pre><code class="language-lua">
+local NewDropdown = NewGroupbox:AddDropdown(String(Index),{
+    Text = String;
+    SpecialType = "Players" or "Team" --Not Needed
+    AllowNull = Bool,
+    Values = Table,
+    Multi = Bool,
+    Callback = Function,
+})
+
+NewDropdown:SetValues(Table) --Sets The List
+NewDropdown:SetValue(String) --Sets Current Selected
+NewDropdown:OnChanged(function(Value)
+    print(Value)
+end)
+</code></pre>
+                </div>
+                <div id="Textbox" class="content-section">
+                    <h1>Textbox</h1>
+<pre><code class="language-lua">
+local NewTextbox = NewGroupbox:AddInput(String(Index),{
+    Text = String;
+    Default = String,
+    Numeric = Bool, --Not Needed
+    Finished = Bool, --Not Needed
+    Callback = Function,
+})
+
+NewTextbox:AddTooltip(String)
+NewTextbox:OnChanged(function(Value)
+    print(Value)
+end)
 </code></pre>
                 </div>
             </div>
@@ -82,6 +141,9 @@ NewToggle:AddTooltip(String)
                     <li><a href="#Label" class="toc-link">Label</a></li>
                     <li><a href="#Button" class="toc-link">Button</a></li>
                     <li><a href="#Toggle" class="toc-link">Toggle</a></li>
+                    <li><a href="#Slider" class="toc-link">Slider</a></li>
+                    <li><a href="#Dropdown" class="toc-link">Dropdown</a></li>
+                    <li><a href="#Textbox" class="toc-link">Textbox</a></li>
                 </ul>
             </div>
         </main>
