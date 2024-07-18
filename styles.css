@@ -172,8 +172,8 @@ main.content {
 }
 
 .toc a.active {
-    background-color: #1d252c; /* Dark background color */
-    color: #f5f5f5; /* Cyan text color */
+    background-color: #1d252c;
+    color: #f5f5f5;
     font-weight: bold;
     border: 0px solid #00ffef; /* Thinner cyan border color */
     border-radius: 8px; /* Rounded corners */
