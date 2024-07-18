@@ -1,18 +1,59 @@
-function showContent(sectionId) {
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => {
-        section.style.display = 'none';
-    });
-    document.getElementById(sectionId).style.display = 'block';
+document.addEventListener("DOMContentLoaded", function() {
+    var tocLinks = document.querySelectorAll('.toc-link');
+    var sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-    const links = document.querySelectorAll('.sidebar ul li a');
-    links.forEach(link => {
-        link.classList.remove('active');
+    // Smooth scrolling for TOC links
+    tocLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-    document.querySelector(`.sidebar ul li a[onclick="showContent('${sectionId}')"]`).classList.add('active');
-}
 
-// Show the first section by default
-document.addEventListener('DOMContentLoaded', () => {
-    showContent('UiLibrary');
+    // Smooth scrolling for Sidebar links
+    sidebarLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetId = this.getAttribute('href').substring(1);
+            var targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Highlight active section in sidebar and TOC
+    window.addEventListener('scroll', function() {
+        var sections = document.querySelectorAll('.content-section');
+        
+        sections.forEach(function(section, index) {
+            var bounding = section.getBoundingClientRect();
+            
+            if (bounding.top <= 150 && bounding.bottom >= 150) {
+                // Update active links in sidebar
+                sidebarLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+                if (sidebarLinks[index]) {
+                    sidebarLinks[index].classList.add('active');
+                }
+
+                // Update active links in TOC
+                tocLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+                if (tocLinks[index]) {
+                    tocLinks[index].classList.add('active');
+                }
+            }
+        });
+    });
 });
