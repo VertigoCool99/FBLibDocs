@@ -58,46 +58,5 @@ toggleSliderInput()
     <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
-    <script>
-        // Smooth scrolling for TOC links
-        document.addEventListener("DOMContentLoaded", function() {
-            var tocLinks = document.querySelectorAll('.toc-link');
-            tocLinks.forEach(function(link) {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    var targetId = this.getAttribute('href').substring(1);
-                    var targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Highlight active section in sidebar and TOC
-            window.addEventListener('scroll', function() {
-                var sections = document.querySelectorAll('.content-section');
-                var sidebarLinks = document.querySelectorAll('.sidebar-link');
-                var tocLinks = document.querySelectorAll('.toc-link');
-
-                sections.forEach(function(section, index) {
-                    var bounding = section.getBoundingClientRect();
-
-                    if (bounding.top <= 150 && bounding.bottom >= 150) {
-                        sidebarLinks.forEach(function(link) {
-                            link.classList.remove('active');
-                        });
-                        sidebarLinks[index].classList.add('active');
-
-                        tocLinks.forEach(function(link) {
-                            link.classList.remove('active');
-                        });
-                        tocLinks[index].classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
