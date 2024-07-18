@@ -167,6 +167,23 @@ ToggleKeyPicker:OnChanged(function(Value)
 end)
 </code></pre>
                 </div>
+                <div id="ColorPickerAddon" class="content-section">
+                    <h1>ColorPicker [ADDON]</h1>
+<pre><code class="language-lua">
+local ColorPickerAddon = NewToggle:AddColorPicker(String(Index),{
+    Default = Color3,
+    Transparency = Int, --Not Needed
+    Rainbow = Bool, -- Not Needed
+    Title = String, --Not Needed
+    Callback = Function,
+})
+
+ColorPicker:SetValueRGB(Color3RGB)
+ColorPicker:OnChanged(function(Value)
+    print(Value)    
+end)
+</code></pre>
+                </div>
             </div>
             <div class="toc">
                 <h3>Table of Contents</h3>
@@ -180,6 +197,7 @@ end)
                     <li><a href="#Textbox" class="toc-link">Textbox</a></li>
                     <li><a href="#ColorPicker" class="toc-link">Color Picker</a></li>
                     <li><a href="#KeyPicker" class="toc-link">Key Picker [ADDON]</a></li>
+                    <li><a href="#ColorPickerAddon" class="toc-link">Color Picker [ADDON]</a></li>
                 </ul>
             </div>
         </main>
