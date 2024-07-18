@@ -28,6 +28,11 @@
             padding: 20px;
             background-color: #fff;
             border-right: 1px solid #ccc;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0; /* Extend sidebar to the bottom */
+            overflow-y: auto; /* Enable scrolling if needed */
         }
 
         .sidebar h2 {
@@ -58,6 +63,7 @@
         .content {
             flex: 1;
             padding: 20px;
+            margin-left: 220px; /* Adjust to accommodate sidebar width */
         }
 
         .content-section {
@@ -191,7 +197,7 @@ toggleSliderInput()
             });
         });
 
-        // Highlight active section in sidebar
+        // Highlight active section in sidebar and TOC
         window.addEventListener('scroll', function() {
             var sections = document.querySelectorAll('.content-section');
             var sidebarLinks = document.querySelectorAll('.sidebar a');
