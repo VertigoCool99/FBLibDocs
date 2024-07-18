@@ -81,7 +81,7 @@ pre[class*="language-"] {
     position: relative;
     margin: 1em 0;
     padding: 1em;
-    background-color: #222b33; /* Code block background color */
+    background-color: #222b33 !important; /* Code block background color */
     border-radius: 8px;
     overflow-x: auto; /* Ensure code blocks scroll horizontally if necessary */
 }
