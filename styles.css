@@ -171,10 +171,10 @@ main.content {
     color: #00ffef; /* Cyan hover color */
 }
 
-.toc .active {
+.toc a.active {
     background-color: #1d252c; /* Dark background color */
     color: #00ffef; /* Cyan text color */
     font-weight: bold;
     border: 1px solid #00ffef; /* Thinner cyan border color */
-    border-radius: 8px; /* Rounded corners for the border */
+    border-radius: 8px; /* Rounded corners */
 }
