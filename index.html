@@ -11,52 +11,61 @@
 </head>
 <body>
     <div class="container">
-        <aside class="sidebar">
-            <h3>Float.balls Docs</h3>
+        <div class="toc">
+            <h3>Table of Contents</h3>
             <ul>
-                <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
-                <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
-                <li><hr class="sidebar-divider"></li> <!-- Divider here -->
-                <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
-                <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
+                <li><a href="#UiLibrary">Ui Library</a></li>
+                <li><a href="#ToggleSliderInput">Toggle Slider Input</a></li>
+                <li><a href="#EspLibrary">Esp Library</a></li>
+                <li><a href="#EspLibraryExample">Esp Library Example</a></li>
             </ul>
-        </aside>
+        </div>
         <main class="content">
             <div id="UiLibrary" class="content-section">
-                <h1>Introduction</h1>
-                <p>Welcome to the documentation. This is the introduction section.</p>
+                <h1>Ui Library</h1>
+                <p>This section contains documentation for the Ui Library.</p>
             </div>
-            <div id="UiLibraryExample" class="content-section" style="display: none;">
-                <h1>Getting Started</h1>
-                <p>Here's how to get started with our product.</p>
+            <div id="ToggleSliderInput" class="content-section">
+                <h1>Toggle Slider Input</h1>
+                <p>Here's an example of how to use a toggle slider input:</p>
                 <pre><code class="language-lua">
 -- Example Lua code
-function helloWorld()
-    print("Hello, world!")
+function toggleSliderInput()
+    -- Implementation here
 end
-helloWorld()
+toggleSliderInput()
                 </code></pre>
             </div>
-            <div id="EspLibrary" class="content-section" style="display: none;">
-                <h1>API Reference</h1>
-                <p>Here is the API reference documentation.</p>
-                <pre><code class="language-lua">
--- Another example Lua code
-function add(a, b)
-    return a + b
-end
-print(add(2, 3)) -- Outputs: 5
-                </code></pre>
+            <div id="EspLibrary" class="content-section">
+                <h1>Esp Library</h1>
+                <p>This section contains documentation for the Esp Library.</p>
             </div>
-            <div id="EspLibraryExample" class="content-section" style="display: none;">
-                <h1>FAQ</h1>
-                <p>Frequently Asked Questions.</p>
+            <div id="EspLibraryExample" class="content-section">
+                <h1>Esp Library Example</h1>
+                <p>Example content for the Esp Library Example.</p>
             </div>
         </main>
     </div>
+    <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth scrolling for TOC links
+            var tocLinks = document.querySelectorAll('.toc a');
+            tocLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var targetId = this.getAttribute('href').substring(1);
+                    var targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
