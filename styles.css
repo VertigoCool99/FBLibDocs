@@ -10,6 +10,7 @@ body {
 .container {
     display: flex;
     width: 100%;
+    position: relative;
 }
 
 /* Sidebar styles */
@@ -75,6 +76,7 @@ main.content {
     padding-right: 220px; /* Space for TOC */
 }
 
+/* Content section styles */
 .content-section {
     padding: 20px;
     margin-bottom: 20px;
@@ -104,10 +106,12 @@ main.content {
     padding: 20px;
     background-color: #1d252c; /* Dark TOC background */
     border-left: 1px solid #161f26; /* Darker border */
-    position: sticky;
+    position: fixed;
+    right: 0; /* Align TOC to the right side */
     top: 0;
-    height: 100vh;
+    height: 100vh; /* Full viewport height */
     overflow-y: auto;
+    z-index: 10; /* Ensure TOC is above other content */
 }
 
 .toc h3 {
