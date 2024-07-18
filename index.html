@@ -22,41 +22,61 @@
         </aside>
         <main class="content">
             <div class="content-wrapper">
-                <div id="UiLibrary" class="content-section">
-                    <h1>Ui Library</h1>
-                    <p>This section contains documentation for the Ui Library.</p>
+                <div id="Introduction" class="content-section">
+                    <h1>Introduction</h1>
+                    <p>First Require The Library And Make A Window And Tabs/Groupboxes</p>
+                    <pre><code class="language-lua">
+                        local Library = "Library Loadstring Here"
+                        local Window = Library:CreateWindow({Title=String,TweenTime=Int,Center=Bool})
+                        
+                        local NewTab = Window2:AddTab(String(Name))
+                        
+                        local NewGroupbox = NewTab:AddLeftGroupbox(String(Name)) --Left Side
+                        Local NewGroupbox2 = NewTab:AddRightGroupbox(String(Name)) --Right Side
+                    </code></pre>
+                </div>
+                <div id="Label" class="content-section">
+                    <h1>Label</h1>
+                    <pre><code class="language-lua">
+                        local NewLabel = NewGroupbox:AddLabel(String(Index),String(Text))
+
+                        NewLabel:SetText(String(Text)) --Updates The Label
+                    </code></pre>
+                    <p>Labels Can Take Addons Such As KeyPickers And ColorPickers!</p>
+                </div>
+                <div id="Button" class="content-section">
+                    <h1>Button</h1>
+                    <pre><code class="language-lua">
+                        local NewButton = NewGroupbox:AddButton({
+                            Text=String,
+                            Func=Function,
+                        })
+
+                        NewButton:AddButton({ --Add A Sub Button
+                            Text = String,
+                            Func= Function,
+                        })
+
+                        NewButton:AddTooltip(String)
+                    </code></pre>
                 </div>
                 <div id="Toggle" class="content-section">
-                    <h1>Toggle</h1>
-                    <p>Here's an example of a toggle component:</p>
+                    <h1>Label</h1>
                     <pre><code class="language-lua">
--- Example Lua code
-function toggleComponent()
-    -- Implementation here
-end
-toggleComponent()
+                        local NewLabel = NewGroupbox:AddLabel(String(Index),String(Text))
+
+                        NewLabel:SetText(String(Text)) --Updates The Label
                     </code></pre>
+                    <p>Labels Can Take Addons Such As KeyPickers And ColorPickers!</p>
                 </div>
-                <div id="Slider" class="content-section">
-                    <h1>Slider</h1>
-                    <p>Here's an example of a slider component:</p>
-                    <pre><code class="language-lua">
--- Example Lua code
-function sliderComponent()
-    -- Implementation here
-end
-sliderComponent()
-                    </code></pre>
-                </div>
-                <!-- Add more sections as needed -->
             </div>
             <div class="toc">
                 <h3>Table of Contents</h3>
                 <ul>
-                    <li><a href="#Toggle" class="toc-link">Toggle</a></li>
-                    <li><a href="#Slider" class="toc-link">Slider</a></li>
-                    <li><a href="#Input" class="toc-link">Input</a></li>
+                    <li><a href="#Introduction" class="toc-link">Introduction</a></li>
+                    <li><a href="#Label" class="toc-link">Label</a></li>
                     <li><a href="#Button" class="toc-link">Button</a></li>
+                    <li><a href="#Toggle" class="toc-link">Toggle</a></li>
                 </ul>
             </div>
         </main>
