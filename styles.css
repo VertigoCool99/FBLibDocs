@@ -104,7 +104,7 @@ main.content {
 .toc {
     width: 200px;
     padding: 20px;
-    background-color: #1d252c; /* Dark TOC background */
+    background-color: #11171d; /* Match main site background */
     border-left: 1px solid #161f26; /* Darker border */
     position: fixed;
     right: 0; /* Align TOC to the right side */
@@ -116,7 +116,7 @@ main.content {
 
 .toc h3 {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reduced margin */
     color: #ffffff; /* White text color for title */
 }
 
@@ -126,7 +126,7 @@ main.content {
 }
 
 .toc li {
-    margin-bottom: 8px; /* Adjusted spacing between TOC items */
+    margin-bottom: 4px; /* Reduced spacing between TOC items */
 }
 
 .toc a {
@@ -134,7 +134,7 @@ main.content {
     color: #f5f5f5; /* Light text color */
     font-size: 16px;
     display: block; /* Ensure the background color covers the full width */
-    padding: 8px; /* Add padding for better visual */
+    padding: 8px; /* Adjusted padding for better visual */
     border-radius: 8px; /* Rounded corners */
 }
 
