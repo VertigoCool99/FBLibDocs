@@ -19,13 +19,15 @@ document.addEventListener("DOMContentLoaded", function() {
     const tocLinks = document.querySelectorAll('.toc a');
 
     function highlightActiveSection() {
-        let index = -1; // Start with an invalid index
+        let index = -1;
 
-        // Find the section that is currently closest to the viewport
+        // Calculate the midpoint of the viewport
+        const viewportMidpoint = window.innerHeight / 2;
+
         for (let i = 0; i < sections.length; i++) {
             const bounding = sections[i].getBoundingClientRect();
-            // Check if the middle of the viewport is within the section's vertical space
-            if (bounding.top <= window.innerHeight / 1.5 && bounding.bottom >= window.innerHeight / 1.5) {
+            // Check if the midpoint of the viewport is within the section's vertical space
+            if (bounding.top < viewportMidpoint && bounding.bottom > viewportMidpoint) {
                 index = i;
                 break;
             }
