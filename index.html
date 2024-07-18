@@ -61,13 +61,18 @@
                     </code></pre>
                 </div>
                 <div id="Toggle" class="content-section">
-                    <h1>Label</h1>
+                    <h1>Toggle</h1>
                     <pre><code class="language-lua">
-                        local NewLabel = NewGroupbox:AddLabel(String(Index),String(Text))
+                        local NewToggle = NewGroupbox:AddToggle(String(Index),{
+                            Text = String,
+                            Default = Bool,
+                            Risky = Bool,
+                            Callback = Function,
+                        })
 
-                        NewLabel:SetText(String(Text)) --Updates The Label
+                        NewToggle:SetValue(Bool)
+                        NewToggle:AddTooltip(String)
                     </code></pre>
-                    <p>Labels Can Take Addons Such As KeyPickers And ColorPickers!</p>
                 </div>
             </div>
             <div class="toc">
