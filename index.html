@@ -8,56 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
-    <style>
-        .toc {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #f5f5f5;
-            border-left: 1px solid #ccc;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        .toc ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .toc li {
-            margin-bottom: 10px;
-        }
-        .content {
-            margin-right: 280px; /* Adjust to accommodate the TOC width */
-        }
-        .content-section {
-            padding: 20px;
-            margin-bottom: 20px;
-            background-color: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
-        .content-section h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .content-section p {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .content-section pre {
-            margin: 10px 0;
-        }
-    </style>
 </head>
 <body>
     <div class="toc">
         <h3>Table of Contents</h3>
-        <ul>
-            <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
-            <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
-            <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
-            <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
+        <ul id="toc-list">
+            <!-- TOC items will be dynamically added here -->
         </ul>
     </div>
     <div class="container">
@@ -91,19 +47,38 @@ toggleSliderInput()
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
     <script>
-        function showContent(sectionId) {
-            // Hide all content sections
-            var contentSections = document.querySelectorAll('.content-section');
-            contentSections.forEach(function(section) {
-                section.style.display = 'none';
+        document.addEventListener("DOMContentLoaded", function() {
+            // Dynamically populate the Table of Contents (TOC)
+            var tocList = document.getElementById('toc-list');
+            var sections = document.querySelectorAll('.content-section');
+
+            sections.forEach(function(section) {
+                var sectionId = section.id;
+                var sectionTitle = section.querySelector('h1').innerText;
+
+                var listItem = document.createElement('li');
+                var link = document.createElement('a');
+                link.href = "#" + sectionId;
+                link.textContent = sectionTitle;
+                link.onclick = function() {
+                    showContent(sectionId);
+                };
+
+                listItem.appendChild(link);
+                tocList.appendChild(listItem);
             });
 
-            // Show the selected content section
-            var selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.style.display = 'block';
+            // Function to show/hide content sections
+            function showContent(sectionId) {
+                sections.forEach(function(section) {
+                    if (section.id === sectionId) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
             }
-        }
+        });
     </script>
 </body>
 </html>
