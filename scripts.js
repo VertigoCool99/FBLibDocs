@@ -1,9 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var tocLinks = document.querySelectorAll('.toc-link');
-    var sidebarLinks = document.querySelectorAll('.sidebar-link');
-    var sections = document.querySelectorAll('.content-section');
-
-    // Smooth scrolling for TOC and Sidebar links
+    // Smooth scrolling for links
     function smoothScroll(link) {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -17,27 +13,31 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    var tocLinks = document.querySelectorAll('.toc-link');
+    var sidebarLinks = document.querySelectorAll('.sidebar-link');
+    var sections = document.querySelectorAll('.content-section');
+
     tocLinks.forEach(smoothScroll);
     sidebarLinks.forEach(smoothScroll);
 
     // Highlight active section in sidebar and TOC
     function updateActiveLink() {
         var scrollPosition = window.scrollY + 150; // Adjust scroll position for active link
-        sections.forEach(function(section, index) {
+
+        sections.forEach(function(section) {
+            var sectionId = section.getAttribute('id');
             var bounding = section.getBoundingClientRect();
-            if (bounding.top + window.scrollY <= scrollPosition && bounding.bottom + window.scrollY >= scrollPosition) {
+            var sectionTop = bounding.top + window.scrollY;
+            var sectionBottom = bounding.bottom + window.scrollY;
+
+            if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
                 sidebarLinks.forEach(function(link) {
-                    link.classList.remove('active');
+                    link.classList.toggle('active', link.getAttribute('href').includes(sectionId));
                 });
+
                 tocLinks.forEach(function(link) {
-                    link.classList.remove('active');
+                    link.classList.toggle('active', link.getAttribute('href').includes(sectionId));
                 });
-                if (sidebarLinks[index]) {
-                    sidebarLinks[index].classList.add('active');
-                }
-                if (tocLinks[index]) {
-                    tocLinks[index].classList.add('active');
-                }
             }
         });
     }
