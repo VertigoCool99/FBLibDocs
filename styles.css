@@ -83,7 +83,7 @@ main.content {
     border: none; /* No border */
     border-radius: 8px; /* Rounded corners */
     max-width: 1200px; /* Increase max-width for wider sections */
-    width: 150%; /* Full width up to max-width */
+    width: 190%; /* Full width up to max-width */
     box-sizing: border-box; /* Ensure padding is included in width */
     text-align: left; /* Align text to the left */
 }
