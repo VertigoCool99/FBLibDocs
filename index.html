@@ -19,8 +19,8 @@
         }
 
         .container {
-            flex: 1;
             display: flex;
+            width: 100%;
         }
 
         /* Sidebar styles */
@@ -34,6 +34,7 @@
             left: 0;
             bottom: 0;
             overflow-y: auto;
+            height: 100vh; /* Full viewport height */
         }
 
         .sidebar h2 {
@@ -101,7 +102,7 @@
             width: 200px;
             padding: 20px;
             background-color: #1d252c; /* Dark TOC background */
-            border-right: 1px solid #161f26; /* Darker border */
+            border-left: 1px solid #161f26; /* Darker border */
             position: sticky;
             top: 0;
             height: 100vh;
@@ -144,26 +145,35 @@
         <aside class="sidebar">
             <h2>Float.balls Docs</h2>
             <ul>
-                <li><a href="#UiLibrary">Ui Library</a></li>
-                <li><a href="#ToggleSliderInput">Toggle Slider Input</a></li>
-                <li><a href="#EspLibrary">Esp Library</a></li>
-                <li><a href="#EspLibraryExample">Esp Library Example</a></li>
+                <li><a href="#UiLibrary" class="sidebar-link">Ui Library</a></li>
+                <li><a href="#UiLibraryExample" class="sidebar-link">Toggle Slider Input</a></li>
+                <li><a href="#EspLibrary" class="sidebar-link">Esp Library</a></li>
+                <li><a href="#EspLibraryExample" class="sidebar-link">Esp Library Example</a></li>
             </ul>
         </aside>
         <main class="content">
             <div id="UiLibrary" class="content-section">
                 <h1>Ui Library</h1>
                 <p>This section contains documentation for the Ui Library.</p>
+                <div class="toc">
+                    <h3>Table of Contents</h3>
+                    <ul>
+                        <li><a href="#Toggle" class="toc-link">Toggle</a></li>
+                        <li><a href="#Slider" class="toc-link">Slider</a></li>
+                        <li><a href="#Input" class="toc-link">Input</a></li>
+                        <li><a href="#Button" class="toc-link">Button</a></li>
+                    </ul>
+                </div>
             </div>
-            <div id="ToggleSliderInput" class="content-section">
+            <div id="UiLibraryExample" class="content-section">
                 <h1>Toggle Slider Input</h1>
                 <p>Here's an example of how to use a toggle slider input:</p>
                 <pre><code class="language-lua">
--- Example Lua code
-function toggleSliderInput()
-    -- Implementation here
-end
-toggleSliderInput()
+                    -- Example Lua code
+                    function toggleSliderInput()
+                        -- Implementation here
+                    end
+                    toggleSliderInput()
                 </code></pre>
             </div>
             <div id="EspLibrary" class="content-section">
@@ -175,15 +185,6 @@ toggleSliderInput()
                 <p>Example content for the Esp Library Example.</p>
             </div>
         </main>
-        <div class="toc">
-            <h3>Table of Contents</h3>
-            <ul>
-                <li><a href="#UiLibrary">Ui Library</a></li>
-                <li><a href="#ToggleSliderInput">Toggle Slider Input</a></li>
-                <li><a href="#EspLibrary">Esp Library</a></li>
-                <li><a href="#EspLibraryExample">Esp Library Example</a></li>
-            </ul>
-        </div>
     </div>
     <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
@@ -191,7 +192,7 @@ toggleSliderInput()
     <script>
         // Smooth scrolling for TOC links
         document.addEventListener("DOMContentLoaded", function() {
-            var tocLinks = document.querySelectorAll('.toc a');
+            var tocLinks = document.querySelectorAll('.toc-link');
             tocLinks.forEach(function(link) {
                 link.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -204,28 +205,28 @@ toggleSliderInput()
                     }
                 });
             });
-        });
 
-        // Highlight active section in sidebar and TOC
-        window.addEventListener('scroll', function() {
-            var sections = document.querySelectorAll('.content-section');
-            var sidebarLinks = document.querySelectorAll('.sidebar a');
-            var tocLinks = document.querySelectorAll('.toc a');
+            // Highlight active section in sidebar and TOC
+            window.addEventListener('scroll', function() {
+                var sections = document.querySelectorAll('.content-section');
+                var sidebarLinks = document.querySelectorAll('.sidebar-link');
+                var tocLinks = document.querySelectorAll('.toc-link');
 
-            sections.forEach(function(section, index) {
-                var bounding = section.getBoundingClientRect();
+                sections.forEach(function(section, index) {
+                    var bounding = section.getBoundingClientRect();
 
-                if (bounding.top <= 150 && bounding.bottom >= 150) {
-                    sidebarLinks.forEach(function(link) {
-                        link.classList.remove('active');
-                    });
-                    sidebarLinks[index].classList.add('active');
+                    if (bounding.top <= 150 && bounding.bottom >= 150) {
+                        sidebarLinks.forEach(function(link) {
+                            link.classList.remove('active');
+                        });
+                        sidebarLinks[index].classList.add('active');
 
-                    tocLinks.forEach(function(link) {
-                        link.classList.remove('active');
-                    });
-                    tocLinks[index].classList.add('active');
-                }
+                        tocLinks.forEach(function(link) {
+                            link.classList.remove('active');
+                        });
+                        tocLinks[index].classList.add('active');
+                    }
+                });
             });
         });
     </script>
