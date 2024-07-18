@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
 </head>
 <body>
     <div class="container">
         <aside class="sidebar">
-            <h2>Float.balls Documentation</h2>
+            <h3>Float.balls Docs</h3>
             <ul>
                 <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
                 <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
@@ -25,10 +28,25 @@
             <div id="UiLibraryExample" class="content-section" style="display: none;">
                 <h1>Getting Started</h1>
                 <p>Here's how to get started with our product.</p>
+                <pre><code class="language-lua">
+-- Example Lua code
+function helloWorld()
+    print("Hello, world!")
+end
+helloWorld()
+                </code></pre>
             </div>
+            <hr class="divider">
             <div id="EspLibrary" class="content-section" style="display: none;">
                 <h1>API Reference</h1>
                 <p>Here is the API reference documentation.</p>
+                <pre><code class="language-lua">
+-- Another example Lua code
+function add(a, b)
+    return a + b
+end
+print(add(2, 3)) -- Outputs: 5
+                </code></pre>
             </div>
             <div id="EspLibraryExample" class="content-section" style="display: none;">
                 <h1>FAQ</h1>
@@ -37,5 +55,9 @@
         </main>
     </div>
     <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
 </html>
