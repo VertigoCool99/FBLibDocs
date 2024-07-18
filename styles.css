@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -15,15 +17,15 @@ body {
 
 .sidebar {
     width: 250px;
-    background-color: #1d252c; /* ItemBackground color */
+    background-color: #1d252c; /* Sidebar background color */
     padding: 20px;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    border-right: 1px solid #161f26; /* ItemBorder color */
+    border-right: 1px solid #161f26; /* Sidebar border color */
 }
 
 .sidebar h3 {
     margin-top: 0;
-    margin-bottom: 20px; /* Adjust margin to fit nicely */
+    margin-bottom: 20px; /* Adjust margin */
     font-size: 1.5rem; /* Adjust title size */
     color: #f5f5f5; /* Text color */
 }
@@ -50,8 +52,8 @@ body {
 .sidebar ul li a:hover,
 .sidebar ul li a:focus,
 .sidebar ul li a.active {
-    background-color: #161f26; /* ItemBorder color as hover background */
-    border-color: #00ffef; /* Active color as border */
+    background-color: #161f26; /* Sidebar item hover background color */
+    border-color: #00ffef; /* Sidebar item active border color */
 }
 
 .sidebar-divider {
@@ -74,16 +76,12 @@ body {
     display: block;
 }
 
-.disabled-text {
-    color: #868686; /* DisabledText color */
-}
-
 /* Prism code block styles */
 pre[class*="language-"] {
     position: relative;
     margin: 1em 0;
     padding: 1em;
-    background-color: #222b33; /* Code block background */
+    background-color: #222b33; /* Code block background color */
     border-radius: 8px;
     overflow-x: auto; /* Ensure code blocks scroll horizontally if necessary */
 }
