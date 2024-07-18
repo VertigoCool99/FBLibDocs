@@ -8,19 +8,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
+    <style>
+        .toc {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #f5f5f5;
+            border-left: 1px solid #ccc;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .toc ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .toc li {
+            margin-bottom: 10px;
+        }
+        .content {
+            margin-right: 280px; /* Adjust to accommodate the TOC width */
+        }
+        .content-section {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .content-section h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .content-section p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .content-section pre {
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
+    <div class="toc">
+        <h3>Table of Contents</h3>
+        <ul>
+            <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
+            <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
+            <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
+            <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
+        </ul>
+    </div>
     <div class="container">
-        <aside class="sidebar">
-            <h3>Float.balls Docs</h3>
-            <ul id="toc">
-                <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
-                <li><a href="#" onclick="showContent('UiLibraryExample')">Toggle Slider Input</a></li>
-                <li><hr class="sidebar-divider"></li> <!-- Divider here -->
-                <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
-                <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
-            </ul>
-        </aside>
         <main class="content">
             <div id="UiLibrary" class="content-section">
                 <h1>Ui Library</h1>
@@ -50,8 +90,6 @@ toggleSliderInput()
     <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
     <script>
         function showContent(sectionId) {
             // Hide all content sections
@@ -64,16 +102,6 @@ toggleSliderInput()
             var selectedSection = document.getElementById(sectionId);
             if (selectedSection) {
                 selectedSection.style.display = 'block';
-            }
-
-            // Update active state in TOC
-            var tocItems = document.querySelectorAll('#toc li');
-            tocItems.forEach(function(item) {
-                item.classList.remove('active');
-            });
-            var activeTocItem = document.querySelector('#toc a[href="#"][onclick="showContent(\'' + sectionId + '\')"]');
-            if (activeTocItem) {
-                activeTocItem.parentNode.classList.add('active');
             }
         }
     </script>
