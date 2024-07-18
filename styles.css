@@ -45,6 +45,9 @@ body {
     text-decoration: none;
     color: #f5f5f5; /* Light text color */
     font-size: 16px;
+    display: block; /* Ensure the background color covers the full width */
+    padding: 10px; /* Add padding for better visual */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .sidebar a:hover {
@@ -52,9 +55,13 @@ body {
 }
 
 .sidebar .active {
+    background-color: #00ffef; /* Highlighted background color */
+    color: #1d252c; /* Dark text color for contrast */
     font-weight: bold;
-    color: #00ffef; /* Active link color */
+    border: 2px solid #00ffef; /* Rounded border */
+    border-radius: 8px; /* Rounded corners for the border */
 }
+
 
 /* Content styles */
 .content {
