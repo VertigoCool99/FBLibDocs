@@ -24,9 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // Find the section that is currently closest to the viewport
         for (let i = 0; i < sections.length; i++) {
             const bounding = sections[i].getBoundingClientRect();
-
             // Check if the middle of the viewport is within the section's vertical space
-            if (bounding.top <= window.innerHeight / 2 && bounding.bottom > window.innerHeight / 2) {
+            if (bounding.top <= window.innerHeight / 1.5 && bounding.bottom >= window.innerHeight / 1.5) {
                 index = i;
                 break;
             }
