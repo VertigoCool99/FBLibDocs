@@ -10,75 +10,53 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
 </head>
 <body>
-    <div class="toc">
-        <h3>Table of Contents</h3>
-        <ul id="toc-list">
-            <!-- TOC items will be dynamically added here -->
-        </ul>
-    </div>
     <div class="container">
+        <aside class="sidebar">
+            <h3>Float.balls Docs</h3>
+            <ul>
+                <li><a href="#" onclick="showContent('UiLibrary')">Ui Library</a></li>
+                <li><a href="#" onclick="showContent('UiLibraryExample')">Ui Library Example</a></li>
+                <li><hr class="sidebar-divider"></li> <!-- Divider here -->
+                <li><a href="#" onclick="showContent('EspLibrary')">Esp Library</a></li>
+                <li><a href="#" onclick="showContent('EspLibraryExample')">Esp Library Example</a></li>
+            </ul>
+        </aside>
         <main class="content">
             <div id="UiLibrary" class="content-section">
-                <h1>Ui Library</h1>
-                <p>This section contains documentation for the Ui Library.</p>
+                <h1>Introduction</h1>
+                <p>Welcome to the documentation. This is the introduction section.</p>
             </div>
             <div id="UiLibraryExample" class="content-section" style="display: none;">
-                <h1>Toggle Slider Input</h1>
-                <p>Here's an example of how to use a toggle slider input:</p>
+                <h1>Getting Started</h1>
+                <p>Here's how to get started with our product.</p>
                 <pre><code class="language-lua">
 -- Example Lua code
-function toggleSliderInput()
-    -- Implementation here
+function helloWorld()
+    print("Hello, world!")
 end
-toggleSliderInput()
+helloWorld()
                 </code></pre>
             </div>
             <div id="EspLibrary" class="content-section" style="display: none;">
-                <h1>Esp Library</h1>
-                <p>This section contains documentation for the Esp Library.</p>
+                <h1>API Reference</h1>
+                <p>Here is the API reference documentation.</p>
+                <pre><code class="language-lua">
+-- Another example Lua code
+function add(a, b)
+    return a + b
+end
+print(add(2, 3)) -- Outputs: 5
+                </code></pre>
             </div>
             <div id="EspLibraryExample" class="content-section" style="display: none;">
-                <h1>Esp Library Example</h1>
-                <p>Example content for the Esp Library Example.</p>
+                <h1>FAQ</h1>
+                <p>Frequently Asked Questions.</p>
             </div>
         </main>
     </div>
-    <script src="scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Dynamically populate the Table of Contents (TOC)
-            var tocList = document.getElementById('toc-list');
-            var sections = document.querySelectorAll('.content-section');
-
-            sections.forEach(function(section) {
-                var sectionId = section.id;
-                var sectionTitle = section.querySelector('h1').innerText;
-
-                var listItem = document.createElement('li');
-                var link = document.createElement('a');
-                link.href = "#" + sectionId;
-                link.textContent = sectionTitle;
-                link.onclick = function() {
-                    showContent(sectionId);
-                };
-
-                listItem.appendChild(link);
-                tocList.appendChild(listItem);
-            });
-
-            // Function to show/hide content sections
-            function showContent(sectionId) {
-                sections.forEach(function(section) {
-                    if (section.id === sectionId) {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
-                });
-            }
-        });
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 </body>
 </html>
