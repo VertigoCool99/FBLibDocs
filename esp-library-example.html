@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Float.balls Docs</h2>
+            <ul>
+                <li><a href="index.html" class="sidebar-link">Ui Library</a></li>
+                <li><a href="library-example.html" class="sidebar-link">Ui Library Example</a></li>
+                <li><a href="esp-library.html" class="sidebar-link">Esp Library</a></li>
+                <li><a href="esp-library-example.html" class="sidebar-link">Esp Library Example</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div class="content-wrapper">
+              
+                <div id="Example" class="content-section">
+                    <h1>Example</h1>
+<pre><code class="language-lua">
+local EspLibrary, EspLibraryFunctions = "Library Loadstring Here"
+local Players = cloneref(game:GetService("Players"))
+  
+local PlayerUpdater = game:GetService("RunService").RenderStepped
+PlayerUpdater:Connect(EspLibrary.Esp.UpdateEsp)
+
+for i,v in ipairs(Players:GetPlayers()) do
+    if v ~= LocalPlayer and v.Character ~= nil then
+        if v:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,v.Character)
+        end
+        EspLibrary.Esp:CreateEsp(v.Character) --Takes Model
+        EspLibrary.Esp:CreateFlag({Text="Visible",Character=v.Character,TextIsCallback=true,Callback=function()
+            if Functions:IsVisible(v.Character) == true then
+                return "Visible"
+            else
+                return "Not Visible"
+            end
+        end})
+    end
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(function(char)
+        if plr:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,char)
+        end
+        if not EspLibrary.PlayerCache[char] then
+            EspLibrary.Esp:CreateEsp(char) --Takes Model
+            EspLibrary.Esp:CreateFlag({Text="Visible",Character=char,TextIsCallback=true,Callback=function()
+                if Functions:IsVisible(char) == true then
+                    return "Visible"
+                else
+                    return "Not Visible"
+                end
+            end})
+        end
+    end)
+end)
+
+SettingsTable.Esp.Boxes.Enabled = true
+SettingsTable.Esp.BoxOutline.Enabled = true
+SettingsTable.Esp.BoxFilled.Enabled = true
+SettingsTable.Esp.Names.Enabled = true
+SettingsTable.Esp.Distance.Enabled = true
+SettingsTable.Esp.Tools.Enabled = true
+SettingsTable.Esp.HealthBars.Enabled = true
+SettingsTable.Esp.HealthText.Enabled = true
+SettingsTable.Esp.Tracer.Enabled = true
+SettingsTable.Esp.TracerOutline.Enabled = true
+SettingsTable.Esp.Flags.Enabled = true
+</code></pre>
+                </div>
+        
+            </div>
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#Example" class="toc-link">Introduction</a></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
+</body>
+</html>
