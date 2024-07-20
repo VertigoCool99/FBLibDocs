@@ -87,8 +87,8 @@ Library.Options["NewToggleKeyPicker"]:OnClick(function()
     print("Key Pressed")
 end)
 
-local ToggleColorPicker = NewToggle:AddColorPicker("NewToggleColorPicker",{Default = Color3.fromRGB(255,55,65);Rainbow = false})
-NewColorPicker:OnChanged(function(Color)
+local NewToggleColorPicker = NewToggle:AddColorPicker("NewToggleColorPicker",{Default = Color3.fromRGB(255,55,65);Rainbow = false})
+NewToggleColorPicker:OnChanged(function(Color)
     print(Color)
 end)
 
