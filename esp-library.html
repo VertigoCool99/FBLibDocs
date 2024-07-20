@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/toolbar/prism-toolbar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>Float.balls Docs</h2>
+            <ul>
+                <li><a href="index.html" class="sidebar-link">Ui Library</a></li>
+                <li><a href="library-example.html" class="sidebar-link">Ui Library Example</a></li>
+                <li><a href="esp-library.html" class="sidebar-link">Esp Library</a></li>
+                <li><a href="esp-library-example.html" class="sidebar-link">Esp Library Example</a></li>
+            </ul>
+        </aside>
+        <main class="content">
+            <div class="content-wrapper">
+              
+                <div id="Introduction" class="content-section">
+                    <h1>Introduction</h1>
+                    <p>First Require The Library And Make A Your Players Functtion</p>
+<pre><code class="language-lua">
+local EspLibrary, EspLibraryFunctions = "Library Loadstring Here"
+local Players = cloneref(game:GetService("Players"))
+  
+local PlayerUpdater = game:GetService("RunService").RenderStepped
+PlayerUpdater:Connect(EspLibrary.Esp.UpdateEsp)
+
+for i,v in ipairs(Players:GetPlayers()) do
+    if v ~= LocalPlayer and v.Character ~= nil then
+        if v:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,v.Character)
+        end
+        EspLibrary.Esp:CreateEsp(v.Character) --Takes Model
+    end
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(function(char)
+        if plr:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,char)
+        end
+        if not EspLibrary.PlayerCache[char] then
+            EspLibrary.Esp:CreateEsp(char) --Takes Model
+        end
+    end)
+end)
+</code></pre>
+                </div>
+
+                <div id="Section2" class="content-section">
+                    <h1>Section 2</h1>
+<pre><code class="language-lua">
+EspLibrary.Esp.Boxes.Enabled = true
+EspLibrary.Esp.BoxOutline.Enabled = true
+EspLibrary.Esp.BoxFilled.Enabled = true
+EspLibrary.Esp.Names.Enabled = true
+EspLibrary.Esp.Distance.Enabled = true
+EspLibrary.Esp.Tools.Enabled = true
+EspLibrary.Esp.HealthBars.Enabled = true
+EspLibrary.Esp.HealthText.Enabled = true
+EspLibrary.Esp.Tracer.Enabled = true
+EspLibrary.Esp.TracerOutline.Enabled = true
+EspLibrary.Esp.Flags.Enabled = true
+</code></pre>
+                </div>
+        
+            </div>
+            <div class="toc">
+                <h3>Table of Contents</h3>
+                <ul>
+                    <li><a href="#Introduction" class="toc-link">Introduction</a></li>
+                    <li><a href="#Section2" class="toc-link">Section 2</a></li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-lua.min.js"></script>
+</body>
+</html>
