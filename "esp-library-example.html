@@ -56,19 +56,47 @@ end)
                 </div>
 
                 <div id="Section2" class="content-section">
+                    <h1>Introduction</h1>
+                    <p>First Require The Library And Make A Your Players Functtion</p>
+<pre><code class="language-lua">
+local EspLibrary, EspLibraryFunctions = "Library Loadstring Here"
+local Players = cloneref(game:GetService("Players"))
+  
+local PlayerUpdater = game:GetService("RunService").RenderStepped
+PlayerUpdater:Connect(EspLibrary.Esp.UpdateEsp)
+
+for i,v in ipairs(Players:GetPlayers()) do
+    if v ~= LocalPlayer and v.Character ~= nil then
+        if v:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,v.Character)
+        end
+        EspLibrary.Esp:CreateEsp(v.Character) --Takes Model
+    end
+end
+
+Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(function(char)
+        if plr:IsFriendsWith(LocalPlayer.UserId) then
+            table.insert(EspLibrary.Friends,char)
+        end
+        if not EspLibrary.PlayerCache[char] then
+            EspLibrary.Esp:CreateEsp(char) --Takes Model
+        end
+    end)
+end)
+</code></pre>
+                </div>
+
+                <div id="Flags" class="content-section">
                     <h1>Section 2</h1>
 <pre><code class="language-lua">
-EspLibrary.Esp.Boxes.Enabled = true
-EspLibrary.Esp.BoxOutline.Enabled = true
-EspLibrary.Esp.BoxFilled.Enabled = true
-EspLibrary.Esp.Names.Enabled = true
-EspLibrary.Esp.Distance.Enabled = true
-EspLibrary.Esp.Tools.Enabled = true
-EspLibrary.Esp.HealthBars.Enabled = true
-EspLibrary.Esp.HealthText.Enabled = true
-EspLibrary.Esp.Tracer.Enabled = true
-EspLibrary.Esp.TracerOutline.Enabled = true
-EspLibrary.Esp.Flags.Enabled = true
+EspLibrary.Esp:CreateFlag({
+    Text = String,
+    Character = Model(Character),
+    TextIsCallback = Bool,
+    Callback = Function,
+    Color = Color, --Not Needed
+})
 </code></pre>
                 </div>
         
@@ -78,6 +106,7 @@ EspLibrary.Esp.Flags.Enabled = true
                 <ul>
                     <li><a href="#Introduction" class="toc-link">Introduction</a></li>
                     <li><a href="#Section2" class="toc-link">Section 2</a></li>
+                    <li><a href="#Flags" class="toc-link">Flags</a></li>
                 </ul>
             </div>
         </main>
